@@ -1,1 +1,48 @@
 
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://localhost:8761/eureka/
+  
+  instance:
+    prefer-ip-address: true
+
+jwt:
+  secret-key: MySecretKeyMySecretKeyMySecretKey123456
+  expiration: 86400000
+
+springdoc:
+  api-docs:
+    enabled: true
+  
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    
+    org.springframework.security: TRACE
+    
+    org.hibernate.SQL: DEBUG
+    
+    org.hibernate.type.descriptor.sql: TRACE
